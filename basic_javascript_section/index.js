@@ -154,20 +154,95 @@ var contacts = [
 
 function lookUpProfile(name, prop) {
   // Only change code below this line
-  for (i=0; i<contacts.length; i++) {
-    if (contacts[i]['firstName'] != name ) {
-      return 'No such contact'
-    }
-    else if (contacts[i].hasOwnProperty(prop) != true) {
-      return 'No such property'
-    }
-    else if (contacts[i]['firstName'] == name && contacts[i].hasOwnProperty(prop) == true) {
-      return (contacts[i][prop]);
+  for ( var i=0; i<contacts.length; i++) {
+    if (contacts[i]['firstName'] ===name) {
+        if (contacts[i].hasOwnProperty(prop) ) {
+          return contacts[i][prop];
+        }
+
+        else {
+          return 'No such property';
+        }
       }
     }
+  return 'No such contact';
   // Only change code above this line
 }
 
-console.log( lookUpProfile("Akira", "likes"));
+// console.log( lookUpProfile("Akira", "likes"));
 // console.log(lookUpProfile("Kristian", "lastName"));
+// console.log(lookUpProfile("Sherlock", "likes"));
+// console.log(lookUpProfile("Harry", "likes"));
+// console.log(lookUpProfile("Bob", "likes"));
+// console.log( lookUpProfile("Akira", "address"));
+var min= 2;
+var max= 10;
+var result  = Math.floor(Math.random() * (max - min + 1)) + min 
+// console.log(result)
 
+function convertToInteger(str) {
+  return parseInt(str, 2);
+}
+
+result  =convertToInteger("10011");
+// console.log(result);
+//
+//
+//
+//
+//
+// Only change code below this line
+function countdown(n){
+  // base case
+
+  if (n < 1) {
+    return [];
+  }
+  else { 
+    const countArray = countdown(n - 1);
+    // add n to the end of the array
+    countArray.unshift(n);
+    // returns the array back so you can push stuff in there
+    return countArray;
+  // recursive call
+  // return;
+    }
+}
+// console.log(countdown(-1));
+// console.log(countdown(10)); // should return [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+// console.log(countdown(3));
+// console.log(countdown(5));
+
+
+function countup(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    // make an array that cant change, make it equal to countup again
+    const countArray = countup(n - 1);
+    // add n to the end of the array
+    countArray.push(n);
+    // returns the array back so you can push stuff in there
+    return countArray;
+  }
+}
+// console.log(countup(5));
+// Only change code above this line
+function rangeOfNumbers(startNum, endNum) {
+  //base case
+  // var num = 0;
+  if (startNum > endNum)  {
+    return [];
+  } else {
+    const countArray = rangeOfNumbers(startNum + 1, endNum );
+    
+    countArray.unshift(startNum);
+    return countArray;
+  }
+  //recursive call
+  return [];
+};
+// console.log(rangeOfNumbers(1, 5)); // [1, 2, 3, 4, 5].
+// console.log(rangeOfNumbers(1, 3)); // [1, 2, 3, 4, 5].
+// console.log(rangeOfNumbers(6, 9)); // [6, 7, 8, 9].
+// console.log(rangeOfNumbers(4, 4)); // [4].
