@@ -2,13 +2,10 @@
 function spinalCase(str) {
   let strRegex =  /[A-Z]/g;
   let matchedLetters = (str.match(strRegex));
-  let word= '';
+  let word = '';
    for ( let i=0; i< matchedLetters.length;i++) {
      let lowerCasedLetter = (matchedLetters[i].toLowerCase());
-  
      str  = (str.replace(matchedLetters[i],(' ' + lowerCasedLetter)));
-
-      
    }
 
   let nonWordRegex =  /[^a-z]/g;
