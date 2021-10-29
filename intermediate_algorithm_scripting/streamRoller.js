@@ -1,19 +1,21 @@
+// https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-steamroller/16079
 function steamrollArray(arr) {
-  // return arr;
-  let  dex = [];
-  for( let n in  dex) {
-    // console.log(n);
-    // console.log(dex[ n ]);
-  };
-  // for( let n in  arr) {
-  //   console.log(arr[n]);
-  // };
-    return arr.reduce((acc, cV) => acc.concat(cV), []);
-  // while an element in the array is an array having something inside, run the function
-  // multiple times
-}
+  const flattenedArray = [];
+  // Loop over array contents
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      // Recursively flatten entries that are arrays
+      //  and push into the flattenedArray
+      flattenedArray.push(...steamrollArray(arr[i]));
+    } else {
+      // Copy contents that are not arrays
+      flattenedArray.push(arr[i]);
+    }
+  }
+  return flattenedArray;
+};
 
-// console.log(steamrollArray([1, [2], [3, [[4]]]]));// [1, 2, 3, 4]
-// console.log(steamrollArray([[["a"]], [["b"]]]));// ["a", "b"].
-// console.log(steamrollArray([1, [], [3, [[4]]]]));// [1, {}, 3, 4]
+console.log(steamrollArray([1, [2], [3, [[4]]]]));// [1, 2, 3, 4]
+console.log(steamrollArray([[["a"]], [["b"]]]));// ["a", "b"].
+console.log(steamrollArray([1, [], [3, [[4]]]]));// [1,3, 4]
 console.log(steamrollArray([1, {}, [3, [[4]]]]));// [1, {}, 3, 4]

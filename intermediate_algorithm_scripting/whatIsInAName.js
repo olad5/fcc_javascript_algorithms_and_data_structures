@@ -6,6 +6,7 @@ function whatIsInAName(collection, source) {
   // -- by William Shakespeare, Romeo and Juliet
   let srcKeys = Object.keys(source);
 
+  console.log(srcKeys);
   // filter the collection
   return collection.filter(function(obj) {
     for (let i = 0; i < srcKeys.length; i++) {

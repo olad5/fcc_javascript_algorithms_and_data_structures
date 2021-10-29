@@ -3,6 +3,7 @@ function smallestCommons(arr) {
   const [min, max] = arr.sort((a, b) => a - b);
   // this part is to create the array
   const range = Array(max - min + 1).fill(0).map((_, i) => i + min);
+  // console.log(range);
   // Largest possible value for SCM
   const upperBound = range.reduce((prod, curr) => prod * curr);
   // Test all multiples of 'max'

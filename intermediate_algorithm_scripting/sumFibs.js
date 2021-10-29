@@ -1,20 +1,17 @@
+// https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-sum-all-odd-fibonacci-numbers/16084
 function sumFibs(num) {
-  // first write the function for fibonacci
-  // it should output an array
-  // filter that array with % 2==0 and less than num
-  // sum the elements of the array
-  function fib(n1, ) {
-    // base case
-    // if (n1==1 && n2==1) {
-    if (n1==1 ) {
-      return 1
+  let prevNumber = 0;
+  let currNumber = 1;
+  let result = 0;
+  while (currNumber <= num) {
+    if (currNumber % 2 !== 0) {
+      result += currNumber;
     }
-    // recursive function
-    else {
-      // let ans = n2 + fib(n1
-    }
+    currNumber += prevNumber;
+    prevNumber = currNumber - prevNumber;
   }
-  return num;
+
+  return result;
 }
 
 console.log(sumFibs(4));// 5
